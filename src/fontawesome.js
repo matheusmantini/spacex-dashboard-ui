@@ -6,6 +6,7 @@ import {
   faBoxesStacked,
   faExclamationTriangle,
   faHouse,
+  faRocket,
   faList,
   faX,
   faPlus,
@@ -18,6 +19,7 @@ library.add(
   faList,
   faExclamationTriangle,
   faX,
+  faRocket,
   faPenToSquare,
   faPlus
 );
