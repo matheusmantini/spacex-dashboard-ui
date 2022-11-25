@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, defaults } from "chart.j
 import { Pie } from "react-chartjs-2";
 import useRequestData from "../../hooks/userRequestData";
 import { BASE_URL } from "../../constants/urls";
+import { Container } from "./styled";
 
 const PieChartComponent = () => {
   ChartJS.register(ArcElement, Tooltip, Legend);
@@ -24,12 +25,21 @@ const PieChartComponent = () => {
   const options = {
     plugins: {
       title: {
-        display: false,
+        display: true,
+        fullSize: true,
+        text: 'Lançamentos de foguetes',
+        padding: 10,
+        font: {
+          size: 20,
+          family: 'Segoe UI',
+        }
       },
       legend: {
-        position: 'left'
+        position: 'top'
       }
     },
+    maintainAspectRatio: false,
+    aspectRatio: 1,
     responsive: true,
   };
 
@@ -46,7 +56,7 @@ const PieChartComponent = () => {
     ],
   };
   
-  return <Pie options={options} data={finalData} />;
+  return <Container><Pie options={options} data={finalData} /></Container>;
 };
 
 export default PieChartComponent;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   gap: 50px;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,8 @@ export const Container = styled.div`
 
 export const ChartArea = styled.div`
   width: 500px;
-  min-height: 400px;
-  max-height: 400px;
+  height: auto;
+  min-height: 450px;
   padding: 20px;
   text-align: center;
   display: flex;

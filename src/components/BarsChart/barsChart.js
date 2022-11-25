@@ -11,6 +11,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import useRequestData from "../../hooks/userRequestData";
 import { BASE_URL } from "../../constants/urls";
+import { Container } from "./styled";
 
 const BarsChartComponent = () => {
   ChartJS.register(
@@ -141,12 +142,20 @@ const BarsChartComponent = () => {
   const options = {
     plugins: {
       title: {
-        display: false,
+        display: true,
+        text: 'Lançamentos por ano',
+        padding: 20,
+        font: {
+          size: 22,
+          family: 'Segoe UI',
+        }
       },
       legend: {
         display: false,
       },
     },
+    maintainAspectRatio: false,
+    aspectRatio: 2,
     responsive: true,
     scales: {
       x: {
@@ -184,7 +193,7 @@ const BarsChartComponent = () => {
     ],
   };
   
-  return <Bar options={options} data={finalData} />;
+  return <Container><Bar options={options} data={finalData} /></Container>;
 };
 
 export default BarsChartComponent;

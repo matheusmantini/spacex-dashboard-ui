@@ -1,18 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import LaunchStatus from "../LaunchStatus/launchStatus";
 import { Container, ChartArea } from "./styled";
 
 const ContainerCharts = (props) => {
   return (
     <Container>
       <ChartArea>
-        <h3>Lançamentos de foguetes</h3>
         {props.pie}
+
+        <LaunchStatus />
       </ChartArea>
-      <ChartArea>
-        <h3>Lançamentos por ano</h3>
-        {props.bars}
-      </ChartArea>
+      <ChartArea>{props.bars}</ChartArea>
     </Container>
   );
 };
