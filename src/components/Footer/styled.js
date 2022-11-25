@@ -2,21 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: auto;
-  min-height: 60px;
-  border-bottom: 1px solid var(--color-blue);
+  min-height: 50px;
+  border-top: 1px solid var(--color-blue);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.p`
   color: var(--color-white);
-  font-size: 26px;
+  font-size: 14px;
   margin-left: 20px;
-`;
-
-export const Icon = styled.i`
-  color: var(--color-white);
-  font-size: 26px;
 `;
 

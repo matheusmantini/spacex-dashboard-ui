@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+  body{
+    background-color: var(--bg-color);
+  }
   :root {
     --color-yellow: #EAC435;
     --color-blue: #345995;

@@ -30,8 +30,8 @@ const PieChartComponent = () => {
         text: 'Lançamentos de foguetes',
         padding: 10,
         font: {
-          size: 20,
-          family: 'Segoe UI',
+          size: 22,
+          family: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
         }
       },
       legend: {

@@ -5,7 +5,6 @@ export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  gap: 50px;
   justify-content: center;
   align-items: center;
   padding: 50px;
@@ -14,7 +13,7 @@ export const Container = styled.div`
 export const ChartArea = styled.div`
   width: 500px;
   height: auto;
-  min-height: 450px;
+  min-height: 460px;
   padding: 20px;
   text-align: center;
   display: flex;
@@ -22,6 +21,8 @@ export const ChartArea = styled.div`
   justify-content: center;
   align-items: center;
   background-color: lightgray;
+  border-radius: 10px;
+  margin: 0 25px;
 `;
 
 /* @media screen and (max-width: 1024px) {

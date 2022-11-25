@@ -10,11 +10,11 @@ export const sideToSideSlide = keyframes`
 `;
 
 export const LoadingSlider = styled.div`
-  border: 1.6rem solid var(--color-light-green);
+  border: 1.2rem solid var(--color-blue);
   border-radius: 50%;
-  border-top: 1.6rem solid var(--color-dark-green);
-  width: 6rem;
-  height: 6rem;
+  border-top: 1.2rem solid var(--color-white);
+  width: 4rem;
+  height: 4rem;
   animation: ${sideToSideSlide} 1.5s linear infinite;
 `;
 

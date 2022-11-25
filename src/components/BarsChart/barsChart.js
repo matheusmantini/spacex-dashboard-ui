@@ -147,7 +147,7 @@ const BarsChartComponent = () => {
         padding: 20,
         font: {
           size: 22,
-          family: 'Segoe UI',
+          family: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
         }
       },
       legend: {
