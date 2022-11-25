@@ -11,6 +11,7 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <ContainerCharts pie={<PieChartComponent />} bars={<BarsChartComponent />}/>
+      
     </>
   );
 };
