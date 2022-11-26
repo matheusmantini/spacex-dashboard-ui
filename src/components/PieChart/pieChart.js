@@ -1,5 +1,5 @@
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, defaults } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import useRequestData from "../../hooks/userRequestData";
 import { BASE_URL } from "../../constants/urls";

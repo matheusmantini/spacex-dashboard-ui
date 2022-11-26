@@ -7,7 +7,6 @@ import BarsChartComponent from "./components/BarsChart/barsChart";
 import SearchBar from "./components/SearchBar/searchBar";
 import SearchesResults from "./components/SearchesResults/searchesResults";
 import Footer from "./components/Footer/footer";
-import Loading from "./components/Loading/loading";
 
 const App = () => {
   return (

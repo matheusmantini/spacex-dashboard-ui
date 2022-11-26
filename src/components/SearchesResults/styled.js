@@ -15,6 +15,7 @@ export const ContainerTable = styled.div`
   height: 600px;
   background-color: var(--color-white);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
