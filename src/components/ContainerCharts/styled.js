@@ -1,19 +1,24 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 50px 50px 0px 50px;
+`;
+
+export const ContainerStatus = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ChartArea = styled.div`
   width: 500px;
   height: auto;
-  min-height: 460px;
+  min-height: 300px;
   padding: 20px;
   text-align: center;
   display: flex;

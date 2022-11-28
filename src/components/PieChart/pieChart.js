@@ -35,7 +35,7 @@ const PieChartComponent = () => {
         }
       },
       legend: {
-        position: 'top'
+        position: 'bottom'
       }
     },
     maintainAspectRatio: false,

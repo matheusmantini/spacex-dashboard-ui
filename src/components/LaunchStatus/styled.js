@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: auto;
-  height: 100px;
+  width: 1050px;
+  height: 60px;
   border: 1px solid var(--color-blue);
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 35px;
+  background-color: lightgray;
 `;
 
 export const Title = styled.h3`

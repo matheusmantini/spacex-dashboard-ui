@@ -12,7 +12,7 @@ const LaunchStatus = () => {
         Sucesso: <span>{data && data.success}</span>
       </SuccessLabel>
       <FailureLabel>
-        Fracasso: <span>{data && data.failure}</span>
+        Falha: <span>{data && data.failure}</span>
       </FailureLabel>
     </Container>
   );
