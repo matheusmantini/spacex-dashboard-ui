@@ -7,7 +7,7 @@
 ![REST](https://img.shields.io/badge/REST%20API-%231572B6.svg?style=for-the-badge)
 
     
-<p align="center">> Status do Projeto: Parcialmente Concluído </p>
+<p align="center">> Status do Projeto: Concluído </p>
 <h6 align="center"> <i>Challenge by Coodesh</i></h6>
     
 ## Funcionalidades
@@ -15,6 +15,9 @@
 - [x] Visualizar um gráfico de pizza/setor sobre o lançamento dos foguetes;
 - [x] Visualizar os resultados de lançamentos (sucesso e falha);
 - [x] Visualizar um gráfico de colunas com o laçamento de foguetes por ano;
+- [ ] Pesquisar pelo pela missão;
+- [ ] Visualizar o vídeo no YouTube ao apertar no ícone;
+- [ ] Mudar de página aparecendo os próximos 5 lançamentos.
 
 
 ## Documentação da API com Swagger: :page_facing_up:	
