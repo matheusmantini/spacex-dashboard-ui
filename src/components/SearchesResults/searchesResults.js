@@ -15,14 +15,14 @@ import axios from "axios";
 const SearchesResults = (props) => {
   const [pageNumber, setPageNumber] = useState(1);
   const [urlPagination, setUrlPagination] = useState(
-    "launches/?limit=5&page=1"
+    `launches/?limit=5&page=1`
   );
 
   const [resultDB, setResultDB] = useState(0);
   let maxPageResult = 1;
 
   useEffect(() => {
-    setUrlPagination(`launches?limit=5&page=${pageNumber}`);
+    props.searchTerm || setUrlPagination(`launches?limit=5&page=${pageNumber}`);
     const getData = () => {
       axios
         .get(`${BASE_URL}/${urlPagination}`)
@@ -30,11 +30,18 @@ const SearchesResults = (props) => {
           setResultDB(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          //alert(err.message);
         });
     };
     getData();
   }, [urlPagination, pageNumber]);
+
+  useEffect(() => {
+    setUrlPagination(
+      `launches?search=${props.searchTerm}&limit=5&page=${pageNumber}`
+    );
+  }, [props.searchTerm]);
+
   const [dataDB] = useRequestData(`${BASE_URL}/${urlPagination}`);
 
   let launchesResultList = null;
@@ -136,7 +143,10 @@ const SearchesResults = (props) => {
       indexPrevious = pagesArray.indexOf(pageNumber);
     }
     const indexNext = pagesArray.indexOf(nextPage);
-    return pagesArray.slice(indexPrevious, indexNext <= 2 ? indexNext + 2 : indexNext + 1);
+    return pagesArray.slice(
+      indexPrevious,
+      indexNext <= 2 ? indexNext + 2 : indexNext + 1
+    );
   };
 
   const paginateFiltered = paginate(allPagesAvailable, pageNumber);
@@ -144,7 +154,12 @@ const SearchesResults = (props) => {
   const pagesList = paginateFiltered.map((page, index) => {
     const isActualPage = page === Number(pageNumber);
     return (
-      <PageButton activePage={isActualPage} key={index} value={page} onClick={onClickAddPageNumber}>
+      <PageButton
+        activePage={isActualPage}
+        key={index}
+        value={page}
+        onClick={onClickAddPageNumber}
+      >
         {page}
       </PageButton>
     );
@@ -154,32 +169,39 @@ const SearchesResults = (props) => {
     <Container>
       <ContainerTable>
         <TableHeaderResults />
-        {dataDB && dataDB.results ? launchesResultList : null}
-        <Pagination>
-          {Number(pageNumber) !== 1 && Number(pageNumber) !== 2 && (
-            <PageButtonFixed
-              key={Math.random()}
-              value={1}
-              onClick={onClickAddPageNumber}
-            >
-              {1}
-            </PageButtonFixed>
-          )}
+        {dataDB && dataDB.results && launchesResultList.length > 0
+          ? launchesResultList
+          : "Não há resultados para sua busca!"}
 
-          {Number(pageNumber) > 3 ? '...' : null}
-          {pagesList}
-          {Number(pageNumber) < 39 ? '...' : null}
+        {maxPageResult !== 1 ? (
+          <Pagination>
+            {Number(pageNumber) !== 1 && Number(pageNumber) !== 2 && (
+              <PageButtonFixed
+                key={Math.random()}
+                value={1}
+                onClick={onClickAddPageNumber}
+              >
+                {1}
+              </PageButtonFixed>
+            )}
 
-          {Number(pageNumber) !== 40 && Number(pageNumber) !== 41 && (
-            <PageButtonFixed
-              key={Math.random()}
-              value={maxPageResult}
-              onClick={onClickAddPageNumber}
-            >
-              {maxPageResult}
-            </PageButtonFixed>
-          )}
-        </Pagination>
+            {Number(pageNumber) > 3 ? "..." : null}
+            {pagesList}
+            {Number(pageNumber) < 39 ? "..." : null}
+
+            {Number(pageNumber) !== 40 && Number(pageNumber) !== 41 && (
+              <PageButtonFixed
+                key={Math.random()}
+                value={maxPageResult}
+                onClick={onClickAddPageNumber}
+              >
+                {maxPageResult}
+              </PageButtonFixed>
+            )}
+          </Pagination>
+        ) : (
+          <Pagination>{pagesList}</Pagination>
+        )}
       </ContainerTable>
     </Container>
   );
