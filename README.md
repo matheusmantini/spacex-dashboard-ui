@@ -25,19 +25,22 @@ http://localhost:3001/api
 
 ## Como rodar a aplicação:
 
-1. No terminal, clone o projeto:
+1. Siga o passo a passo para clonar e instalar as dependências da aplicação no lado servidor em:
+> https://github.com/matheusmantini/spacex-dashboard-api
+
+2. Após o servidor estar rodando, no terminal, clone o projeto de frontend:
 > git clone https://github.com/matheusmantini/spacex-dashboard-ui.git
 
-2. Entre na pasta do projeto:
+3. Entre na pasta do projeto:
 > cd spacex-dashboard-ui
 
-3. Instale as dependências:
+4. Instale as dependências:
 > npm install
 
-4. Execute a aplicação:
+5. Execute a aplicação:
 > npm run start
 
-5. Pronto, agora é possível acessar a aplicação a partir da rota http://localhost:3000
+6. Pronto, agora é possível acessar a aplicação a partir da rota http://localhost:3000
 
 ## Desenvolvedor
 
