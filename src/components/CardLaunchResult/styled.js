@@ -38,6 +38,16 @@ export const Failure = styled.p`
   width: 80%;
 `;
 
+export const Waiting = styled.p`
+  border: 1px solid darkblue;
+  background-color: lightblue;
+  color: darkblue;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 80%;
+`;
+
 export const LinkIcon = styled.a`
   color: red;
   font-size: 30px;

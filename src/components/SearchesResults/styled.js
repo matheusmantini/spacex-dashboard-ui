@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 600px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,10 +12,11 @@ export const Container = styled.div`
 
 export const ContainerTable = styled.div`
   width: 1050px;
-  height: 600px;
+  height: 520px;
   background-color: var(--color-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 `;
