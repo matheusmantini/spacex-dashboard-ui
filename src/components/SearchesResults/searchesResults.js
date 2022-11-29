@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, ContainerTable } from "./styled";
+import {
+  Container,
+  ContainerTable,
+  Pagination,
+  PageButton,
+  PageButtonFixed,
+} from "./styled";
 import useRequestData from "../../hooks/userRequestData";
 import { BASE_URL } from "../../constants/urls";
 import CardLaunchResult from "../CardLaunchResult/cardLaunchResult";
@@ -104,25 +110,76 @@ const SearchesResults = (props) => {
         });
     }
   }
-
-  const onChangeAddPageNumber = (e) => {
+  const onClickAddPageNumber = (e) => {
     setPageNumber(e.target.value);
   };
+
+  const allPagesAvailable = [];
+  for (let i = 0; i < maxPageResult; i++) {
+    allPagesAvailable.push(i + 1);
+  }
+  const paginate = (pagesArray, pageNumber) => {
+    const previousPage =
+      Number(pageNumber) - 1 === 0
+        ? Number(pageNumber)
+        : Number(pageNumber) - 1;
+    const nextPage =
+      pagesArray.length === Number(pageNumber)
+        ? Number(pageNumber)
+        : pagesArray.length >= Number(pageNumber)
+        ? Number(pageNumber) + 1
+        : null;
+    let indexPrevious = 0;
+    if (previousPage !== 0) {
+      indexPrevious = pagesArray.indexOf(previousPage);
+    } else {
+      indexPrevious = pagesArray.indexOf(pageNumber);
+    }
+    const indexNext = pagesArray.indexOf(nextPage);
+    return pagesArray.slice(indexPrevious, indexNext <= 2 ? indexNext + 2 : indexNext + 1);
+  };
+
+  const paginateFiltered = paginate(allPagesAvailable, pageNumber);
+
+  const pagesList = paginateFiltered.map((page, index) => {
+    const isActualPage = page === Number(pageNumber);
+    return (
+      <PageButton activePage={isActualPage} key={index} value={page} onClick={onClickAddPageNumber}>
+        {page}
+      </PageButton>
+    );
+  });
 
   return (
     <Container>
       <ContainerTable>
         <TableHeaderResults />
         {dataDB && dataDB.results ? launchesResultList : null}
-        <input
-          type="number"
-          name="pageNumber"
-          id="pageNumber"
-          value={pageNumber}
-          min={1}
-          max={maxPageResult}
-          onChange={onChangeAddPageNumber}
-        />
+        <Pagination>
+          {Number(pageNumber) !== 1 && Number(pageNumber) !== 2 && (
+            <PageButtonFixed
+              key={Math.random()}
+              value={1}
+              onClick={onClickAddPageNumber}
+            >
+              {1}
+            </PageButtonFixed>
+          )}
+
+          {Number(pageNumber) > 3 ? '...' : null}
+          {pagesList}
+          {Number(pageNumber) < 39 ? '...' : null}
+
+          {Number(pageNumber) !== 40 && Number(pageNumber) !== 41 && (
+            <PageButtonFixed
+              key={Math.random()}
+              value={maxPageResult}
+              onClick={onClickAddPageNumber}
+            >
+              {maxPageResult}
+            </PageButtonFixed>
+          )}
+        </Pagination>
       </ContainerTable>
     </Container>
   );

@@ -20,3 +20,35 @@ export const ContainerTable = styled.div`
   align-items: center;
   border-radius: 10px;
 `;
+
+export const Pagination = styled.div`
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const PageButton = styled.button`
+  cursor: pointer;
+  margin: 0 4px;
+  padding: 5px;
+  border-radius: 5px;
+  ${(props) => {
+    if(props.activePage === true) {
+       return 'background-color: var(--bg-color);';
+    } else {
+       return 'background-color: var(--color-blue);';
+    }
+ }} 
+  color: white;
+`;
+
+export const PageButtonFixed = styled.button`
+cursor: pointer;
+margin: 0 4px;
+padding: 5px;
+border-radius: 5px;
+background-color: var(--color-gray);
+color: white;
+`;
